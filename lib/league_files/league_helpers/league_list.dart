@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_football_app/league_files/league_fixtures.dart';
+import 'package:flutter_football_app/league_files/league_fixtures_page.dart';
 
 class LeagueList extends StatelessWidget {
   final String leagueImages;
@@ -17,7 +17,7 @@ class LeagueList extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => LeagueFixtures(
-                        barTitle: leagueNames,
+                        searchedItem: leagueNames,
                       )));
         },
         child: Row(
