@@ -24,28 +24,28 @@ class Leagues extends StatelessWidget {
   final List leagueRegions = ['European', 'American', 'African', 'Asian'];
   final List leagueImages = [
     [
-      'images/prem.png',
-      'images/laliga.png',
-      'images/serie.png',
-      'images/bun.png',
-      'images/ligue.png'
+      'images/leagues/prem.png',
+      'images/leagues/laliga.png',
+      'images/leagues/serie.png',
+      'images/leagues/bun.png',
+      'images/leagues/ligue.png'
     ],
     [
-      'images/brazil.png',
-      'images/argentina.png',
-      'images/agulia.png',
-      'images/para.png',
-      'images/mx.png',
-      'images/mls.png',
-      'images/costa.png'
+      'images/leagues/brazil.png',
+      'images/leagues/argentina.png',
+      'images/leagues/agulia.png',
+      'images/leagues/para.png',
+      'images/leagues/mx.png',
+      'images/leagues/mls.png',
+      'images/leagues/costa.png'
     ],
-    ['images/egypt.png'],
+    ['images/leagues/egypt.png'],
     [
-      'images/k1.png',
-      'images/persian.png',
-      'images/j1.png',
-      'images/csl.png',
-      'images/npl.png'
+      'images/leagues/k1.png',
+      'images/leagues/persian.png',
+      'images/leagues/j1.png',
+      'images/leagues/csl.png',
+      'images/leagues/npl.png'
     ]
   ];
   final List leagueNames = [

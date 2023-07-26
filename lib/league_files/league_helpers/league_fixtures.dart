@@ -63,7 +63,7 @@ class FixtureBody extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 50,
-          color: Colors.grey,
+          color: const Color.fromARGB(255, 254, 126, 27),
           child: Center(
               child: Text(
             date,
@@ -94,74 +94,90 @@ class FixtureDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => LeagueFixtures(
-                              searchedItem: fixtureDetails['teams'][0]['name'],
-                            )));
-              },
-              child: Text(
-                fixtureDetails['teams'][0]['name'] as String,
-                style:
-                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-            ),
+          TeamDetails(
+            teamName: fixtureDetails['teams'][0]['name'] as String,
+            teamThumbnail: fixtureDetails['teams'][0]['thumbnail'] as String? ??
+                'images/generics/genericTeamLogo.png',
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Image.network(
-              fixtureDetails['teams'][0]['thumbnail'] as String,
-              width: 30,
-              height: 30,
-            ),
-          ),
-          Column(
-            children: [
-              Text(
-                fixtureDetails['time'] as String,
-                style: const TextStyle(fontWeight: FontWeight.w500),
-              ),
-              Text(
-                fixtureDetails.containsKey('status')
-                    ? fixtureDetails['status'] as String
-                    : fixtureDetails['stadium'] as String,
-                style: const TextStyle(fontWeight: FontWeight.w500),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8),
-            child: Image.network(
-              fixtureDetails['teams'][1]['thumbnail'] as String,
-              width: 30,
-              height: 30,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8),
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => LeagueFixtures(
-                              searchedItem: fixtureDetails['teams'][1]['name'],
-                            )));
-              },
-              child: Text(
-                fixtureDetails['teams'][1]['name'] as String,
-                style:
-                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-            ),
+          MatchDetails(fixtureDetails: fixtureDetails),
+          TeamDetails(
+            teamName: fixtureDetails['teams'][1]['name'] as String,
+            teamThumbnail: fixtureDetails['teams'][1]['thumbnail'] as String? ??
+                'images/generics/genericTeamLogo.png',
           ),
         ],
       ),
+    );
+  }
+}
+
+class MatchDetails extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
+  final fixtureDetails;
+  const MatchDetails({super.key, required this.fixtureDetails});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          fixtureDetails['time'] as String,
+          style: const TextStyle(fontWeight: FontWeight.w500),
+        ),
+        Text(
+          fixtureDetails.containsKey('status')
+              ? fixtureDetails['status'] as String
+              : fixtureDetails['stadium'] as String? ?? 'TBA',
+          style: const TextStyle(fontWeight: FontWeight.w500),
+        ),
+      ],
+    );
+  }
+}
+
+class TeamDetails extends StatelessWidget {
+  final String teamName;
+  final String teamThumbnail;
+
+  const TeamDetails(
+      {super.key, required this.teamName, required this.teamThumbnail});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 8),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LeagueFixtures(
+                            searchedItem: teamName,
+                          )));
+            },
+            child: Text(
+              teamName,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 8),
+          child: teamThumbnail.contains('images/generics/')
+              ? Image.asset(
+                  teamThumbnail,
+                  width: 30,
+                  height: 30,
+                )
+              : Image.network(
+                  teamThumbnail,
+                  width: 30,
+                  height: 30,
+                ),
+        )
+      ],
     );
   }
 }
