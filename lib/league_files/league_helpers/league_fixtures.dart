@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_football_app/league_files/league_fixtures_page.dart';
+import 'package:flutter_football_app/pages/league_fixtures_page.dart';
 // import 'api_data.dart';
 
 class Fixtures extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
-  final Map<String, dynamic> searchedItem;
+  final searchedItem;
   const Fixtures({super.key, required this.searchedItem});
 
   @override

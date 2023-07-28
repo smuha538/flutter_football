@@ -1,40 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_football_app/league_files/league_helpers/league_list.dart';
 import 'package:flutter_football_app/league_files/league_helpers/league_options.dart';
-import 'package:flutter_football_app/pages/search_page.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+class Leagues extends StatelessWidget {
+  Leagues({super.key});
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: Leagues());
-  }
-}
-
-class Leagues extends StatefulWidget {
-  const Leagues({super.key});
-
-  @override
-  State<Leagues> createState() => _LeaguesState();
-}
-
-class _LeaguesState extends State<Leagues> {
   final int leagueIndex = 0;
+
   final selectedIndexNotifier = ValueNotifier<int?>(0);
+
   final List leagueRegions = ['European', 'American', 'African', 'Asian'];
+
   final List leagueImages = [
     [
       'images/leagues/prem.png',
@@ -87,7 +63,7 @@ class _LeaguesState extends State<Leagues> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Football Panic'),
+          title: const Text('Leagues'),
           centerTitle: true,
           backgroundColor: const Color.fromARGB(255, 107, 231, 146),
         ),
@@ -128,23 +104,6 @@ class _LeaguesState extends State<Leagues> {
                       })),
             ],
           ),
-        ),
-        bottomNavigationBar: GNav(
-            backgroundColor: const Color.fromARGB(255, 107, 231, 146),
-            tabBackgroundColor: const Color.fromARGB(93, 41, 184, 86),
-            padding: const EdgeInsets.all(10),
-            onTabChange: (index) {
-              print(index);
-            },
-            tabs: const [
-              GButton(
-                icon: Icons.sports_soccer,
-                text: 'Leagues',
-              ),
-              GButton(
-                icon: Icons.search,
-                text: 'Search',
-              )
-            ]));
+        ));
   }
 }

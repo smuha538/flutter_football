@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_football_app/league_files/league_fixtures_page.dart';
+import 'package:flutter_football_app/pages/league_fixtures_page.dart';
 
 class LeagueList extends StatelessWidget {
   final String leagueImages;
