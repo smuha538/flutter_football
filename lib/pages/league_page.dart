@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_football_app/league_files/league_helpers/league_list.dart';
-import 'package:flutter_football_app/league_files/league_helpers/league_options.dart';
+import 'package:flutter_football_app/league_files/league_and_player_helpers/league_list.dart';
+import 'package:flutter_football_app/league_files/league_and_player_helpers/league_options.dart';
 
 class Leagues extends StatelessWidget {
   Leagues({super.key});

@@ -1,37 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_football_app/main.dart';
+import 'package:flutter_football_app/pages/search_result_page.dart';
 
-class Search extends StatefulWidget {
-  const Search({super.key, required});
+class Search extends StatelessWidget {
+  Search({super.key, required});
 
-  @override
-  State<Search> createState() => _SearchState();
-}
+  final TextEditingController searchController = TextEditingController();
 
-class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Search'),
-          centerTitle: true,
-          backgroundColor: const Color.fromARGB(255, 107, 231, 146),
+      appBar: AppBar(
+        title: const Text('Search'),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 107, 231, 146),
+      ),
+      body: Column(children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          child: Column(children: [
+            const SizedBox(
+              height: 10,
+            ),
+            SearchBar(
+              backgroundColor: const MaterialStatePropertyAll(Colors.amber),
+              leading: IconButton(
+                  onPressed: () {
+                    if (searchController.text.isNotEmpty) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SearchResult(
+                                  searchedItem: searchController.text)));
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.search,
+                    color: Colors.white,
+                  )),
+              controller: searchController,
+              hintText: 'Search for a Player or a Team',
+              hintStyle: const MaterialStatePropertyAll(
+                  TextStyle(color: Colors.white)),
+            )
+          ]),
         ),
-        body: const Text('test'),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 1,
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.sports_soccer), label: 'Leagues'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          ],
-          onTap: (int index) {
-            // setState(() {
-            //   currentIndex = index;
-            // });
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Leagues()));
-          },
-        ));
+        //Image from www.vecteezy.com
+        Expanded(child: Image.asset('images/generics/football.png'))
+      ]),
+    );
   }
 }

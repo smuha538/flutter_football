@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_football_app/pages/league_fixtures_page.dart';
-// import 'api_data.dart';
+import 'package:flutter_football_app/league_files/league_and_player_helpers/player_builder.dart';
 
 class Fixtures extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
@@ -9,14 +9,16 @@ class Fixtures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final fixtureData = getData(searchedItem, 'fixtures');
-    return searchedItem.containsKey('games')
-        ? FixtureBuild(fixtureData: searchedItem['games'])
-        : const Center(
-            child: Text(
-            'No Games Found',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ));
+    if (searchedItem.containsKey('games')) {
+      return FixtureBuild(fixtureData: searchedItem['games']);
+    } else if (searchedItem.containsKey('tables')) {
+      return PlayerBuilder(playerData: searchedItem);
+    }
+    return const Center(
+        child: Text(
+      'No Games Found',
+      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    ));
   }
 }
 
