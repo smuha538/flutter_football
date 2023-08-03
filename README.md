@@ -3,6 +3,9 @@
 A football app which allows users to view match fixtures for various games and teams across several leagues. Furthermore, users can search up players and view their stats across various competitions. 
 
 App Demo:
+
+
+
 ![1](https://github.com/smuha538/flutter_football/assets/59937362/f43859b1-37d8-474c-a90a-3d3f8dd3d1d7)
 ![2](https://github.com/smuha538/flutter_football/assets/59937362/fd09e970-cc3c-44d5-953b-527c5f2f0689)
 ![3](https://github.com/smuha538/flutter_football/assets/59937362/b5ee849c-27fa-45bc-a725-3b03927e8f6b)
