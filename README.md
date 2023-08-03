@@ -1,16 +1,11 @@
 # flutter_football_app
 
-A new Flutter project.
+A football app which allows users to view match fixtures for various games and teams across several leagues. Furthermore, users can search up players and view their stats across various competitions. 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+App Demo:
+![1](https://github.com/smuha538/flutter_football/assets/59937362/f43859b1-37d8-474c-a90a-3d3f8dd3d1d7)
+![2](https://github.com/smuha538/flutter_football/assets/59937362/fd09e970-cc3c-44d5-953b-527c5f2f0689)
+![3](https://github.com/smuha538/flutter_football/assets/59937362/b5ee849c-27fa-45bc-a725-3b03927e8f6b)
+![4](https://github.com/smuha538/flutter_football/assets/59937362/59dca65a-62f4-4e78-970f-f719306f7033)
+![5](https://github.com/smuha538/flutter_football/assets/59937362/31af35d4-bf75-414c-8e3f-1e575f673b4c)
+![6](https://github.com/smuha538/flutter_football/assets/59937362/168d03fc-c684-462f-b8bc-89a42cda5930)
